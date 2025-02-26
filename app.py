@@ -1,5 +1,6 @@
 import os
 import google.generativeai as genai
+import markdown
 from flask import Flask, request, render_template, render_template_string
 from markupsafe import Markup
 from dotenv import load_dotenv
@@ -61,24 +62,8 @@ def upload():
             output.append(chunk.text)
 
     output = "".join(output)
-    rendered_html = Markup(output)
-
-    return render_template_string("""<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Result</title>
-</head>
-
-<body>
-    <h1>Generated Story</h1>
-    {{rendered_html}}
-    <a href="/">Create another Story</a>
-
-</body>
-</html>""", rendered_html=rendered_html)
-
+    rendered_html = (markdown.markdown(output))
+    story = Markup("<p><strong>Name</strong>" + rendered_html.split("Name", 1)[1])
+    return render_template('result.html', story = story)
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port=5000)

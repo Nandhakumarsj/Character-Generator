@@ -5,12 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4A90E2;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        p {
+            margin: 15px 0;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        strong {
+            color: #E94E77;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            li {
+                padding: 10px;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+            margin: 20px auto;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            outline: 2px solid #4CAF50;
+            outline-offset: 2px;
+            margin: 20px auto;
+        }
+
+        .anime {
+            transform: translate(0, 0);
+            transition: transform 0.3s;
+        }
+
+        .anime:hover {
+            transform: translate(0, -5px);
+        }
+    </style>
 </head>
 
-<body>
+<body class="container">
     <h1>Generated Story</h1>
-    <div class="markdown">{{rendered_html}}</div>
-    <a href="/">Create another Story</a>
+    <div class="markdown">{{story}}</div>
+    <a class="anime" href="/">Create another Story</a>
 
 </body>
 

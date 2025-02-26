@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl  
 
 # Install Python libraries
-RUN pip install --no-cache-dir google-generativeai flask python-dotenv
+RUN pip install --no-cache-dir google-generativeai flask python-dotenv markdown
 
 COPY . .
 
